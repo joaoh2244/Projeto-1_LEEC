@@ -1,0 +1,64 @@
+int LDR = A0; // Atribui A0 à variável ldr
+int valorldr; // Declara a variável valorldr como inteiro
+const int redPin = 3;
+const int greenPin = 4;
+const int bluePin = 2;
+
+void setup() {
+  pinMode(LDR, INPUT); // Define ldr (pino analógico A0) como entrada
+  Serial.begin(9600); // Inicialização da comunicação serial a 9600 bps
+
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+
+  // Inicializa o monitor serial
+  Serial.begin(9600);
+  Serial.println("Digite três valores (0 a 255) para cada cor do LED RGB:");
+  Serial.println("Formato: R G B");
+  
+}
+
+void loop() {
+  // Lê o valor do sensor LDR
+  valorldr = analogRead(LDR); // Armazena o valor do LDR na variável valorldr
+  Serial.print("Valor lido pelo LDR = ");
+  Serial.println(valorldr);
+  delay(50);
+
+  // Verifica se há dados disponíveis no monitor serial
+  if (Serial.available() > 0) {
+    // Lê os três valores de entrada
+    int redValue = Serial.parseInt();
+    int greenValue = Serial.parseInt();
+    int blueValue = Serial.parseInt();
+
+    // Verifica se os valores estão no intervalo de 0 a 255
+    if (redValue >= 0 && redValue <= 255 &&
+        greenValue >= 0 && greenValue <= 255 &&
+        blueValue >= 0 && blueValue <= 255) {
+
+      // Exibe os valores no monitor serial
+      Serial.print("Vermelho: ");
+      Serial.println(redValue);
+      Serial.print("Verde: ");
+      Serial.println(greenValue);
+      Serial.print("Azul: ");
+      Serial.println(blueValue);
+
+      // Define a intensidade do LED RGB
+      analogWrite(redPin, redValue);
+      analogWrite(greenPin, greenValue);
+      analogWrite(bluePin, blueValue);
+    } else {
+      Serial.println("Por favor, insira valores entre 0 e 255 para cada cor.");
+    }
+
+    // Limpa o buffer serial
+    while (Serial.available() > 0) {
+      Serial.read();
+    }
+  }
+  
+  
+}
