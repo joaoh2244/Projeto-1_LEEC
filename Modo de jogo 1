@@ -1,1 +1,456 @@
-a
+#define x 15
+const int redPin1 = 13;
+const int greenPin1 = 12;
+const int sensor1 = A0;
+int passagem1 = 0;
+
+const int redPin2 = 11;
+const int greenPin2 = 10;
+const int sensor2 = A1;
+int passagem2 = 0;
+
+const int redPin3 = 9;
+const int greenPin3 = 8;
+const int sensor3 = A2;
+int passagem3 = 0;
+
+const int redPin4 = 7;
+const int greenPin4 = 6;
+const int sensor4 = A3;
+int passagem4 = 0;
+
+const int redPin5 = 5;
+const int greenPin5 = 4;
+const int sensor5 = A4;
+int passagem5 = 0;
+/*
+const int redPin6 = 3;
+const int greenPin6 = 2;
+const int sensor6 = A5;
+int passagem6 = 0;
+*/
+
+const int sensorFim = A5;
+int passagemFim = 0;
+int vitoria = 0;
+
+const int button1 = 2;
+const int button2 = 3;
+int button1State = 0;
+int button2State = 0;
+int lastButtonState1 = LOW;
+int lastButtonState2 = LOW;
+unsigned long lastDebounceTime1 = 0; 
+unsigned long lastDebounceTime2 = 0;
+unsigned long debounceDelay = 50;
+
+int leds_percorridos = 0;
+int modo_jogo = 0;
+int escolha = 0;
+int led_definido = 0;
+int inicio = 0;
+
+int generateRandomNumber(int min, int max) {
+  return random(min, max + 1); // random() generates numbers from min to max-1, so add 1
+}
+
+void setup() {
+  // Iniciar comunicação serial
+  Serial.begin(9600);
+  
+  randomSeed(analogRead(A0));
+
+  pinMode(button1, INPUT);
+  pinMode(button2, INPUT);
+  pinMode(sensor1, INPUT);
+  pinMode(sensor2, INPUT);
+  pinMode(sensor3, INPUT);
+  pinMode(sensor4, INPUT);
+  pinMode(sensor5, INPUT);
+//  pinMode(sensor6, INPUT);
+  pinMode(redPin1, OUTPUT);
+  pinMode(greenPin1, OUTPUT);
+  pinMode(redPin2, OUTPUT);
+  pinMode(greenPin2, OUTPUT);
+  pinMode(redPin3, OUTPUT);
+  pinMode(greenPin3, OUTPUT);
+  pinMode(redPin4, OUTPUT);
+  pinMode(greenPin4, OUTPUT);
+  pinMode(redPin5, OUTPUT);
+  pinMode(greenPin5, OUTPUT);
+  //pinMode(redPin6, OUTPUT);
+  //pinMode(greenPin6, OUTPUT);
+  
+}
+
+void loop() {
+  if (modo_jogo == 0){
+    Serial.println("Escolha modo de jogo (1) ou (2)");
+    int reading1 = digitalRead(button1);
+    if (reading1 != lastButtonState1){
+      lastDebounceTime1 = millis();
+    }
+
+    if((millis()- lastDebounceTime1) > debounceDelay){
+      if(reading1 != button1State){
+        button1State = reading1;
+        
+        if(button1State == HIGH){
+          modo_jogo = 1;
+          Serial.println("Modo1");
+        }
+      }
+    }
+  
+    lastButtonState1 = reading1;
+
+    int reading2 = digitalRead(button2);
+    if (reading2 != lastButtonState2){
+      lastDebounceTime2 = millis();
+    }
+
+  if((millis()- lastDebounceTime2) > debounceDelay){
+    if(reading2 != button2State){
+      button2State = reading2;
+        
+      if(button2State == HIGH){
+         modo_jogo = 2;
+         Serial.println("Modo2");
+      }
+    }
+  }
+  
+    lastButtonState2 = reading2;
+  }
+   
+  if(modo_jogo == 1){
+    if (passagem1 == 0){
+      int value1 = analogRead(sensor1);
+      analogWrite(redPin1, 255);
+      analogWrite(greenPin1, 0);
+      //Serial.print("Sensor1: ");
+      //Serial.println(value1);
+    if (value1 <= x){
+      passagem1 = 1;
+      leds_percorridos++;
+    }
+  }
+  else{
+    analogWrite(redPin1, 0);
+    analogWrite(greenPin1, 255);
+  }
+  
+  if (passagem2 == 0){
+    int value2 = analogRead(sensor2);
+    analogWrite(redPin2, 255);
+    analogWrite(greenPin2, 0);
+    //Serial.print("Sensor2: ");
+    //Serial.println(value2);
+    if (value2 <= x){
+      passagem2 = 1;
+      leds_percorridos++;
+    }
+  }
+  else{
+    analogWrite(redPin2, 0);
+    analogWrite(greenPin2, 255);
+  }
+
+  if (passagem3 == 0){
+    int value3 = analogRead(sensor3);
+    analogWrite(redPin3, 255);
+    analogWrite(greenPin3, 0);
+    //.print("Sensor3: ");
+    //Serial.println(value3);
+    if (value3 <= x){
+      passagem3 = 1;
+      leds_percorridos++;
+    }
+  }
+  else{
+    analogWrite(redPin3, 0);
+    analogWrite(greenPin3, 255);
+  }
+
+  if (passagem4 == 0){
+    int value4 = analogRead(sensor4);
+    analogWrite(redPin4, 255);
+    analogWrite(greenPin4, 0);
+    Serial.print("Sensor4: ");
+    Serial.println(value4);
+    if (value4 <= x){
+      passagem4 = 1;
+      leds_percorridos++;
+    }
+  }
+  else{
+    analogWrite(redPin4, 0);
+    analogWrite(greenPin4, 255);
+  }
+
+  if (passagem5 == 0){
+    int value5 = analogRead(sensor5);
+    analogWrite(redPin5, 255);
+    analogWrite(greenPin5, 0);
+    //Serial.print("Sensor5: ");
+    //Serial.println(value5);
+    if (value5 <= x){
+      passagem5 = 1;
+      leds_percorridos++;
+    }
+  }
+  else{
+    analogWrite(redPin5, 0);
+    analogWrite(greenPin5, 255);
+  }
+  /*
+  if (passagem6 == 0){
+    int value6 = analogRead(sensor6);
+    analogWrite(redPin6, 255);
+    analogWrite(greenPin6, 0);
+    //Serial.print("Sensor6: ");
+    //Serial.println(value6);
+    if (value6 <= 1){
+      passagem6 = 1;
+      leds_percorridos++;
+    }
+  }
+  else{
+    analogWrite(redPin6, 0);
+    analogWrite(greenPin6, 255);
+  }
+  */
+  if(leds_percorridos == 5){ //tem que se meter 6 depois
+    int valueFim = analogRead(sensorFim);
+    
+    if (valueFim <= x){
+      passagemFim = 1;
+      vitoria = 0;
+    }
+
+    if(passagemFim == 1 && vitoria == 0){
+    int i = 0;
+    for(int i = 0; i <= 3; i++){
+    analogWrite(redPin1, 0);
+    analogWrite(greenPin1, 255);
+    analogWrite(redPin2, 0);
+    analogWrite(greenPin2, 255);
+    analogWrite(redPin3, 0);
+    analogWrite(greenPin3, 255);
+    analogWrite(redPin4, 0);
+    analogWrite(greenPin4, 255);
+    analogWrite(redPin5, 0);
+    analogWrite(greenPin5, 255);
+    //analogWrite(redPin6, 0);
+    //analogWrite(greenPin6, 255);
+    delay(500);
+    analogWrite(redPin1, 0);
+    analogWrite(greenPin1, 0);
+    analogWrite(redPin2, 0);
+    analogWrite(greenPin2, 0);
+    analogWrite(redPin3, 0);
+    analogWrite(greenPin3, 0);
+    analogWrite(redPin4, 0);
+    analogWrite(greenPin4, 0);
+    analogWrite(redPin5, 0);
+    analogWrite(greenPin5, 0);
+    //analogWrite(redPin6, 0);
+    //analogWrite(greenPin6, 0);
+    delay(500);
+    }
+    leds_percorridos = 0;
+    passagem1 = 0;
+    passagem2 = 0;
+    passagem3 = 0;
+    passagem4 = 0;
+    passagem5 = 0;
+    //passagem6 = 0;
+    vitoria = 1;
+    modo_jogo = 0;
+    }
+  }
+}
+
+  else if(modo_jogo == 2){
+
+    if(led_definido == 0 && leds_percorridos < 5 && inicio == 0){
+
+    escolha = generateRandomNumber(1, 5);
+    Serial.println(escolha);
+    led_definido = 1;
+  }
+
+  if(escolha == 1 && passagem1 == 0){
+    inicio = 1;
+      int value1 = analogRead(sensor1);
+      analogWrite(redPin1, 255);
+      analogWrite(greenPin1, 0);
+      Serial.print("Sensor1: ");
+      Serial.println(value1);
+      if (value1 <= x){
+        passagem1 = 1;
+        led_definido = 0;
+        leds_percorridos++;
+        inicio = 0;
+      }
+  } 
+  if(passagem1 == 1){
+      analogWrite(redPin1, 0);
+      analogWrite(greenPin1, 255);
+  }
+
+  if(escolha == 2 && passagem2 == 0){
+    inicio = 1;
+      int value2 = analogRead(sensor2);
+      analogWrite(redPin2, 255);
+      analogWrite(greenPin2, 0);
+      Serial.print("Sensor2: ");
+      Serial.println(value2);
+      if (value2 <= x){
+        passagem2 = 1;
+        led_definido = 0;
+        leds_percorridos++;
+        inicio = 0;
+      }
+  }
+  
+  if(passagem2 == 1){
+      analogWrite(redPin2, 0);
+      analogWrite(greenPin2, 255);
+  }
+
+  if(escolha == 3 && passagem3 == 0){
+    inicio = 1;
+      int value3 = analogRead(sensor3);
+      analogWrite(redPin3, 255);
+      analogWrite(greenPin3, 0);
+      Serial.print("Sensor3: ");
+      Serial.println(value3);
+      if (value3 <= x){
+        passagem3 = 1;
+        led_definido = 0;
+        leds_percorridos++;
+        inicio = 0;
+      }
+  }
+
+  if(passagem3 == 1){
+      analogWrite(redPin3, 0);
+      analogWrite(greenPin3, 255);
+  }
+
+  if(escolha == 4 && passagem4 == 0){
+    inicio = 1;
+      int value4 = analogRead(sensor4);
+      analogWrite(redPin4, 255);
+      analogWrite(greenPin4, 0);
+      Serial.print("Sensor4: ");
+      Serial.println(value4);
+      if (value4 <= x){
+        passagem4 = 1;
+        led_definido = 0;
+        leds_percorridos++;
+        inicio = 0;
+      }
+  }
+
+  if(passagem4 == 1){
+      analogWrite(redPin4, 0);
+      analogWrite(greenPin4, 255);
+  }
+
+  if(escolha == 5 && passagem5 == 0){
+    inicio = 1;
+      int value5 = analogRead(sensor5);
+      analogWrite(redPin5, 255);
+      analogWrite(greenPin5, 0);
+      Serial.print("Sensor5: ");
+      Serial.println(value5);
+      if (value5 <= x){
+        passagem5 = 1;
+        led_definido = 0;
+        leds_percorridos++;
+        inicio = 0;
+      }
+  } 
+  if(passagem5 == 1){
+      analogWrite(redPin5, 0);
+      analogWrite(greenPin5, 255);
+  }
+/*
+  if(escolha == 6 && passagem6 == 0){
+    inicio = 1;
+      int value6 = analogRead(sensor6);
+      analogWrite(redPin6, 255);
+      analogWrite(greenPin6, 0);
+      Serial.print("Sensor6: ");
+      Serial.println(value6);
+      if (value6 <= x){
+        passagem6 = 1;
+        led_definido = 0;
+        leds_percorridos++;
+        inicio = 0;
+      }
+  } 
+
+  if(passagem6 == 1){
+      analogWrite(redPin6, 0);
+      analogWrite(greenPin6, 255);
+  }
+  */
+  if (inicio == 0){
+    led_definido = 0;
+  }
+
+  if(leds_percorridos == 5){ //tem que se meter 6 depois
+    int valueFim = analogRead(sensorFim);
+    
+    if (valueFim <= x){
+      passagemFim = 1;
+      vitoria = 0;
+    }
+
+    if(passagemFim == 1 && vitoria == 0){
+    int i = 0;
+    for(int i = 0; i <= 3; i++){
+    analogWrite(redPin1, 0);
+    analogWrite(greenPin1, 255);
+    analogWrite(redPin2, 0);
+    analogWrite(greenPin2, 255);
+    analogWrite(redPin3, 0);
+    analogWrite(greenPin3, 255);
+    analogWrite(redPin4, 0);
+    analogWrite(greenPin4, 255);
+    analogWrite(redPin5, 0);
+    analogWrite(greenPin5, 255);
+    //analogWrite(redPin6, 0);
+    //analogWrite(greenPin6, 255);
+    delay(500);
+    analogWrite(redPin1, 0);
+    analogWrite(greenPin1, 0);
+    analogWrite(redPin2, 0);
+    analogWrite(greenPin2, 0);
+    analogWrite(redPin3, 0);
+    analogWrite(greenPin3, 0);
+    analogWrite(redPin4, 0);
+    analogWrite(greenPin4, 0);
+    analogWrite(redPin5, 0);
+    analogWrite(greenPin5, 0);
+    //analogWrite(redPin6, 0);
+    //analogWrite(greenPin6, 0);
+    delay(500);
+    }
+    leds_percorridos = 0;
+    passagem1 = 0;
+    passagem2 = 0;
+    passagem3 = 0;
+    passagem4 = 0;
+    passagem5 = 0;
+    //passagem6 = 0;
+    vitoria = 1;
+    modo_jogo = 0;
+    }
+  }
+  }
+}
+
