@@ -43,7 +43,18 @@ O tabuleiro do jogo é controlado por um joystick e depois a gravidade atua na b
 
 
 
+###
 
+## Acesso ao projeto
+
+Pode [acessar o código fonte do projeto]([https://github.com/camilafernanda/GlicoCare](https://github.com/joaoh2244/Projeto-1_LEEC))
+
+
+## Abrir e rodar o projeto
+
+Após download do projeto, pode abrir com o `Arduino IDE`. Para isso, na tela do launcher clique em:
+- `File->Open` (ou alguma opção similar);
+- Procure o local onde o projeto está e o selecione;
 
 
 
