@@ -1,6 +1,6 @@
 <h1 align="center"> Labirinto Controlável </h1>
 
-![Badge Desenvolvido](https://img.shields.io/badge/Status-Developed-blue)
+![status-do-Projeto](https://img.shields.io/badge/Status-Developed-blue)
 
 # Tópicos
 
