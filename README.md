@@ -68,6 +68,8 @@ Após download do projeto, pode abrir com o `Arduino IDE`. Para isso, na tela do
 
 
 ## Ambito
+![DEEC](https://github.com/user-attachments/assets/3a42c2d0-e1d3-4fe4-bb6e-6b987f243406)
+
 ![UC](https://github.com/user-attachments/assets/76aa05ae-4a92-45a2-a813-f028e0f4d295)
 
 
