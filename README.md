@@ -18,7 +18,7 @@
 ## Descrição do projeto 
 
 <p align="justify">
- Projeto desenvolvido para a disciplina Projeto I do curso de Engenharia Eletrotécnica e de Computadores. O Labirinto Controlável é um jogo para todos.
+ Projeto desenvolvido para a disciplina Projeto I do curso de Engenharia Eletrotécnica e de Computadores. O Labirinto Controlável é um jogo simples de jogar cujo objetivo é a bola passar por todos os pontos vermelhos e chegar ao final.
 
 O tabuleiro do jogo é controlado por um joystick e depois a gravidade atua na bola tendo que alcançar alguns pontos(checkpoints).
 
