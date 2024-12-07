@@ -12,8 +12,7 @@
 * [Acesso ao Projeto](#acesso-ao-projeto)
 * [Tecnologias utilizadas](#Ferramentas-utilizadas)
 * [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
-* [Licença](#licença)
-* [Conclusão](#conclusão)
+* [Ambito](#Ambito)
 
 ## Descrição do projeto 
 
@@ -65,5 +64,10 @@ Após download do projeto, pode abrir com o `Arduino IDE`. Para isso, na tela do
 
 | [<img src="https://github.com/user-attachments/assets/755374a4-a107-4a43-abab-b1789c72fbb5" width=115><br><sub>João Marques Henriques</sub>](https://github.com/joaoh22) |  [<img src="https://avatars.githubusercontent.com/u/38091359?v=4" width=115><br><sub>Luís Varela Pires</sub>](https://github.com/crovim)  |
 | :---: | :---: 
+
+
+
+## Ambito
+![UC](https://github.com/user-attachments/assets/76aa05ae-4a92-45a2-a813-f028e0f4d295)
 
 
