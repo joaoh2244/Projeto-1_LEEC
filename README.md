@@ -26,6 +26,7 @@ O tabuleiro do jogo é controlado por um joystick e depois a gravidade atua na b
 </p>
 
 
+
 ## Funcionalidades
 
 `Mode de seleção de Modo de Jogo:` Bola passar pelo Checkponit inicial e em seguida premir botão 1(Modo 1) ou botão 2(Modo 2).
