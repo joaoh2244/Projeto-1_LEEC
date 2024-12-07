@@ -1,0 +1,73 @@
+int Botao_Centrar_Joystick = 20;	//Variável para selecção do pino do botão do Joysitck.
+int Botao_Fixar = 30;	//Variável para selecção do pino do botão Fixar Servo Motor
+
+int Pino_Joystick_X = A1;//Variável para selecção do pino de sinal analógico do Joysitck Eixo X.
+int Pino_Joystick_Y = A0;//Variável para selecção do pino de sinal analógico do Joysitck Eixo Y.
+
+int Valor_X;  //Variável para determinação do valor no Eixo X.
+int Valor_Y;  //Variável para determinação do valor no Eixo Y.
+
+//Variáveis dos valores máximos e mínimos para os cálculos da função fixar:
+int Valor_Xmax = 1023;
+int Valor_Xmin = 0;
+int Valor_Ymax = 1023;
+int Valor_Ymin =0;
+
+void setup() {
+  Serial.begin(9600); // Inicializa comunicação serial na porta padrão.
+}
+
+void loop() {
+  Valor_X = analogRead(Pino_Joystick_X);
+	Valor_Y = analogRead(Pino_Joystick_Y);
+
+  //Condição para acção do Botão Fixar:
+	if (digitalRead(Botao_Fixar) == LOW){
+		//Se o valor do Eixo de X for superior a 511:
+		if (Valor_X > 511){
+			//Coloca nas variáveis os valores resultante do cálculo:
+			Valor_Xmax = 1023 - Valor_X + 511;
+			Valor_Xmin = 0;
+		}
+		//Se o valor do Eixo de X for inferior a 511:
+		else if (Valor_X < 511){
+			//Coloca nas variáveis os valores resultante do cálculo:
+			Valor_Xmax = 1023;
+			Valor_Xmin = 511 - Valor_X;
+		}
+
+		//Se o valor do Eixo de Y for superior a 511:
+		if (Valor_Y > 511){
+			//Coloca nas variáveis os valores resultante do cálculo:
+			Valor_Ymax = 1023 - Valor_Y + 511;
+			Valor_Ymin = 0;
+		}
+		//Se o valor do Eixo de Y for inferior a 511:
+		else if (Valor_Y < 511){
+			//Coloca nas variáveis os valores resultante do cálculo:
+			Valor_Ymax = 1023;
+			Valor_Ymin = 511 - Valor_Y;
+		}
+	}
+	//Condição para acção do Botão Centrar Joystick:
+	if (digitalRead(Botao_Centrar_Joystick) == LOW){
+		//Coloca nas variáveis os valores necessários para centrar o Servo Comando:
+		Valor_Xmax = 1023;
+		Valor_Xmin = 0;
+		Valor_Ymax = 1023;
+		Valor_Ymin = 0;
+	}
+	//Função de relacionamento ou mapeamento entre valores:
+	Valor_X = map(Valor_X, Valor_Xmin, Valor_Xmax, 0, 40);
+	//Função para movimentação do Servo Motor:
+	Valor_X = 40 - Valor_X;
+	//Função de relacionamento ou mapeamento entre valores:
+	Valor_Y = map(Valor_Y, Valor_Ymin, Valor_Ymax, 0, 40);
+	//Função para movimentação do Servo Motor:
+  Valor_Y = 40 - Valor_Y;
+
+  Serial.print(Valor_X); 
+  Serial.print(",");
+  Serial.println(Valor_Y);
+  delay(60);
+}
