@@ -1,0 +1,199 @@
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2); // Pinos LCD
+
+// Variáveis do cronômetro
+int horas = 0;
+int minutos = 0;
+int segundos = 0;
+int decimas = 0;
+long ultimoTempoCronometro = 0;
+int button = 10;
+int pausa = 9;
+
+//---Definir pin de LDR---//
+int LDR0 = A0; 
+int valorldr0;
+
+int LDR1 = A1;
+int valorldr1;
+
+int LDR2 = A2; 
+int valorldr2;
+
+int LDR3 = A3; 
+int valorldr3;
+
+int LDR4 = A4;
+int valorldr4;
+
+int LDR5 = A5; 
+int valorldr5;
+
+
+//---Definir pin de LED---//
+const int LED0redPin = 22;
+const int LED0greenPin = 23;
+const int LED1redPin = 24;
+const int LED1greenPin = 25;
+const int LED2redPin = 26;
+const int LED2greenPin = 27;
+const int LED3redPin = 28;
+const int LED3greenPin = 29;
+const int LED4redPin = 30;
+const int LED4greenPin = 31;
+const int LED5redPin = 32;
+const int LED5greenPin = 33;
+
+long ultimoTempoLDR = 0;
+
+// Intervalos de tempo
+const long intervaloCronometro = 100; // Atualização a cada décimo de segundo
+const long intervaloLDR = 50;        // Leitura do LDR a cada 50 ms
+
+void setup() {
+
+    // Configurações do LED RGB
+  pinMode(LDR0, INPUT);
+  pinMode(LED0redPin, OUTPUT);
+  pinMode(LED0greenPin, OUTPUT);
+ 
+   pinMode(LDR1, INPUT);
+  pinMode(LED1redPin, OUTPUT);
+  pinMode(LED1greenPin, OUTPUT);
+  
+    pinMode(LDR2, INPUT);
+  pinMode(LED2redPin, OUTPUT);
+  pinMode(LED2greenPin, OUTPUT);
+
+    pinMode(LDR3, INPUT);
+  pinMode(LED3redPin, OUTPUT);
+  pinMode(LED3greenPin, OUTPUT);
+
+    pinMode(LDR4, INPUT);
+  pinMode(LED4redPin, OUTPUT);
+  pinMode(LED4greenPin, OUTPUT);
+
+    pinMode(LDR5, INPUT);
+  pinMode(LED5redPin, OUTPUT);
+  pinMode(LED5greenPin, OUTPUT);
+
+
+  // Configurações do cronômetro
+  Serial.begin(9600);
+  pinMode(button, INPUT);
+  digitalWrite(button, LOW);
+  pinMode(pausa, INPUT);
+  digitalWrite(pausa, LOW);
+  lcd.begin(16, 2);
+
+
+  // Mensagem inicial no monitor serial
+  Serial.println("Digite três valores (0 a 255) para cada cor do LED RGB:");
+  Serial.println("Formato: R G B");
+}
+
+void loop() {
+  unsigned long tempoAtual = millis();
+
+  // ==== Cronômetro ====
+  if (digitalRead(button) == HIGH) {
+    horas = 0;
+    minutos = 0;
+    segundos = 0;
+    decimas = 0;
+    lcd.clear();
+  }
+
+  if (digitalRead(pausa) == HIGH) {
+    delay(200);
+    while (digitalRead(pausa) == LOW);
+    delay(200);
+  }
+
+  if (tempoAtual - ultimoTempoCronometro >= intervaloCronometro) {
+    ultimoTempoCronometro = tempoAtual;
+    decimas++;
+    if (decimas == 10) {
+      decimas = 0;
+      segundos++;
+    }
+    if (segundos == 60) {
+      segundos = 0;
+      minutos++;
+    }
+    if (minutos == 60) {
+      minutos = 0;
+      horas++;
+    }
+
+    // Atualiza o display LCD
+    lcd.setCursor(0, 0);
+    if (horas < 10) lcd.print("0");
+    lcd.print(horas);
+    lcd.print(":");
+    if (minutos < 10) lcd.print("0");
+    lcd.print(minutos);
+    lcd.print(":");
+    if (segundos < 10) lcd.print("0");
+    lcd.print(segundos);
+    lcd.print(":");
+    lcd.setCursor(9, 0);
+    lcd.print(decimas);
+  }
+
+  // ==== LDR e LED RGB ====
+  if (tempoAtual - ultimoTempoLDR >= intervaloLDR) {
+    ultimoTempoLDR = tempoAtual;
+    
+      valorldr0 = analogRead(LDR0);
+      Serial.print("Valor lido pelo LDR0 = ");
+      Serial.println(valorldr0);
+
+    valorldr1 = analogRead(LDR1);
+    Serial.print("Valor lido pelo LDR1 = ");
+    Serial.println(valorldr1);
+
+        valorldr2 = analogRead(LDR2);
+    Serial.print("Valor lido pelo LDR2 = ");
+    Serial.println(valorldr2);
+
+        valorldr3 = analogRead(LDR3);
+    Serial.print("Valor lido pelo LDR3 = ");
+    Serial.println(valorldr3);
+
+        valorldr4 = analogRead(LDR4);
+    Serial.print("Valor lido pelo LDR4 = ");
+    Serial.println(valorldr4);
+
+        valorldr5 = analogRead(LDR5);
+    Serial.print("Valor lido pelo LDR5 = ");
+    Serial.println(valorldr5);
+
+
+    // Verifica entrada no monitor serial
+    if (Serial.available() > 0) {
+      int redValue = Serial.parseInt();
+      int greenValue = Serial.parseInt();
+      int blueValue = Serial.parseInt();
+
+      if (redValue >= 0 && redValue <= 255 &&
+          greenValue >= 0 && greenValue <= 255 &&
+          blueValue >= 0 && blueValue <= 255) {
+        analogWrite(LED0redPin, redValue);
+        analogWrite(LED0greenPin, greenValue);
+
+
+        Serial.print("Vermelho: ");
+        Serial.println(redValue);
+        Serial.print("Verde: ");
+        Serial.println(greenValue);
+      } else {
+        Serial.println("Por favor, insira valores entre 0 e 255 para cada cor.");
+      }
+
+      while (Serial.available() > 0) {
+        Serial.read();
+      }
+    }
+  }
+}
