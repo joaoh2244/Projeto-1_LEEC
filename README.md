@@ -3,7 +3,4 @@ Projeto I-Código para jogo Marble Maze Labyrinth
 
 
 
-
-
-![Labirinto Controlável](https://github.com/user-attachments/assets/f435ad65-a978-4221-b48b-194e1549a5e7)
-
+![Labirinto Controlável](https://github.com/user-attachments/assets/2bc9e401-d9a5-4b15-bba6-4d388d28770c)
