@@ -1,0 +1,40 @@
+#include <Servo.h>    //Importar a "Servo" library.
+
+Servo Servo_X;    //Variável para nomeação dos Servo Motores.
+Servo Servo_Y;    //Variável para nomeação dos Servo Motores.
+
+int Valor_X;  //Variável para determinação do valor no Eixo X.
+int Valor_Y;  //Variável para determinação do valor no Eixo Y.
+
+void setup() {
+  Serial.begin(9600); // Inicializa comunicação serial na porta padrão.
+
+  Servo_X.attach(8);  //Atribuição do pino para o controlo do Servo Motor.
+    Servo_Y.attach(9); //Atribuição do pino para o controlo do Servo Motor.
+}
+
+void loop() {
+
+  if (Serial.available() > 0) { // Verifica se há dados recebidos.
+    String Valores = Serial.readStringUntil('\n');
+    int Separador = Valores.indexOf(',');
+
+    if(Separador != -1){
+      String ValorXStr = Valores.substring(0, Separador);
+      String ValorYStr = Valores.substring(Separador + 1);
+
+      int ValorX = ValorXStr.toInt(); 
+      int ValorY = ValorYStr.toInt();
+
+      //Debugger
+      Serial.print("Valor X: ");
+      Serial.println(ValorX);
+      Serial.print("Valor Y: ");
+      Serial.println(ValorY);
+
+      Servo_X.write(ValorX);
+      Servo_Y.write(ValorY);
+      delay(60);
+    }
+  }
+}
