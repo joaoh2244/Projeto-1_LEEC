@@ -6,4 +6,4 @@ Projeto I-Código para jogo Marble Maze Labyrinth
 ![Labirinto Controlável](https://github.com/user-attachments/assets/2bc9e401-d9a5-4b15-bba6-4d388d28770c)
 
 
-![Projeto Desenvolvido](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+![Projeto Desenvolvido dasd safdsvgsd](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
