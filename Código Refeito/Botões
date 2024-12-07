@@ -1,0 +1,53 @@
+Botoes
+DEFINIR :
+const int button1 = 52;
+const int button2 = 53;
+int button1State = LOW;
+int button2State = LOW;//TAVA 0
+int lastButtonState1 = LOW;
+int lastButtonState2 = LOW;
+unsigned long lastDebounceTime1 = 0; 
+unsigned long lastDebounceTime2 = 0;
+unsigned long debounceDelay = 50;
+
+
+CODIGO LOOP:
+if (modo_jogo == 0) {
+    Serial.println("Escolha modo de jogo (1) ou (2)");
+
+    // Leitura do botão 1
+    int reading1 = digitalRead(button1);
+    if (reading1 != lastButtonState1) {
+      lastDebounceTime1 = millis();
+    }
+
+    if ((millis() - lastDebounceTime1) > debounceDelay) {
+      if (reading1 != button1State) {
+        button1State = reading1;
+
+        if (button1State == HIGH) { // Botão 1 pressionado
+          modo_jogo = 1;
+          Serial.println("Modo1");
+        }
+      }
+    }
+    lastButtonState1 = reading1;
+
+    // Leitura do botão 2
+    int reading2 = digitalRead(button2);
+    if (reading2 != lastButtonState2) {
+      lastDebounceTime2 = millis();
+    }
+
+    if ((millis() - lastDebounceTime2) > debounceDelay) {
+      if (reading2 != button2State) {
+        button2State = reading2;
+
+        if (button2State == HIGH) { // Botão 2 pressionado
+          modo_jogo = 2;
+          Serial.println("Modo2");
+        }
+      }
+    }
+    lastButtonState2 = reading2;
+  }
