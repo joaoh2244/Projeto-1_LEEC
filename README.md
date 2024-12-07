@@ -68,8 +68,8 @@ Após download do projeto, pode abrir com o `Arduino IDE`. Para isso, na tela do
 
 
 ## Ambito
-<a href="https://web.deec.uc.pt/" target="_blank"> <img src="https://github.com/user-attachments/assets/3a42c2d0-e1d3-4fe4-bb6e-6b987f243406" alt="DEEC" width="40" height="40"/> 
+<a href="https://web.deec.uc.pt/" target="_blank"> <img src="https://github.com/user-attachments/assets/3a42c2d0-e1d3-4fe4-bb6e-6b987f243406" alt="DEEC" width="150" height="150"/> 
 
-<a href="https://www.uc.pt/" target="_blank"> <img src="https://github.com/user-attachments/assets/76aa05ae-4a92-45a2-a813-f028e0f4d295" alt="UC" width="100" height="100"/> 
+<a href="https://www.uc.pt/" target="_blank"> <img src="https://github.com/user-attachments/assets/76aa05ae-4a92-45a2-a813-f028e0f4d295" alt="UC" width="150" height="150"/> 
 
 
