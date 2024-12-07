@@ -37,9 +37,11 @@ O tabuleiro do jogo é controlado por um joystick e depois a gravidade atua na b
 
 
 ## Ferramentas utilizadas
-<a href="https://www.arduino.cc/" target="_blank"> <img src="https://github.com/user-attachments/assets/18bc824d-4e6e-4e69-9b7a-6f0517b02a87" alt="Arduino" width="40" height="40"/> </a> 
+<a href="https://www.arduino.cc/" target="_blank"> <img src="https://github.com/user-attachments/assets/18bc824d-4e6e-4e69-9b7a-6f0517b02a87" alt="Arduino" width="40" height="40"/> 
 
-<a href="https://www.w3schools.com/c/c_intro.php" target="_blank"> <img src="https://github.com/user-attachments/assets/f7f5e428-10d6-41af-8076-f3ea7734c9c5" alt="C" width="40" height="40"/> </a> <a 
+<a href="https://www.w3schools.com/c/c_intro.php" target="_blank"> <img src="https://github.com/user-attachments/assets/f7f5e428-10d6-41af-8076-f3ea7734c9c5" alt="C" width="40" height="40"/> </a>
+
+
 
 
 
