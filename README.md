@@ -1,14 +1,13 @@
 Projeto I-Código para jogo Marble Maze Labyrinth
 <h1 align="center"> Labirinto Controlável </h1>
 
-https://img.shields.io/badge/Status-Developed-blue
+![Badge Desenvolvido](https://img.shields.io/badge/Status-Developed-blue)
 
 
 
-
-![Labirinto Controlável](https://github.com/user-attachments/assets/2bc9e401-d9a5-4b15-bba6-4d388d28770c)
 # Tópicos
-* [Labirinto Controlável]((https://github.com/user-attachments/assets/2bc9e401-d9a5-4b15-bba6-4d388d28770c))
+
+* [Título e Imagem de capa](#Título-e-Imagem-de-capa)
 * [Badges](#badges)
 * [Índice](#índice)
 * [Descrição do Projeto](#descrição-do-projeto)
@@ -21,3 +20,5 @@ https://img.shields.io/badge/Status-Developed-blue
 * [Licença](#licença)
 * [Conclusão](#conclusão)
 
+
+![Labirinto Controlável](https://github.com/user-attachments/assets/2bc9e401-d9a5-4b15-bba6-4d388d28770c)
