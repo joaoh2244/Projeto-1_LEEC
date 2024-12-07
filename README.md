@@ -1,12 +1,12 @@
 <h1 align="center"> Labirinto Controlável </h1>
 
-![status-do-Projeto](https://img.shields.io/badge/Status-Developed-blue)
+![status do Projeto](https://img.shields.io/badge/Status-Developed-blue)
 
 # Tópicos
 
 * [Tópicos](#Tópicos)
 * [Descrição do Projeto](#descrição-do-projeto)
-* [Status do Projeto](#status-do-Projeto)
+* [Status do Projeto](#status do Projeto)
 * [Funcionalidades e Demonstração](Demonstração)
 * [Acesso ao Projeto](#acesso-ao-projeto)
 * [Tecnologias utilizadas](#Ferramentas-utilizadas)
