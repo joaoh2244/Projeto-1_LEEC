@@ -6,7 +6,6 @@
 
 * [Tópicos](#Tópicos)
 * [Descrição do Projeto](#descrição-do-projeto)
-* [Status do Projeto](#status-do-Projeto)
 * [Funcionalidades e Demonstração](Demonstração)
 * [Acesso ao Projeto](#acesso-ao-projeto)
 * [Tecnologias utilizadas](#Ferramentas-utilizadas)
