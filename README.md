@@ -8,9 +8,9 @@
 * [Tópicos](#Tópicos)
 * [Descrição do Projeto](#descrição-do-projeto)
 * [Status do Projeto](#status-do-Projeto)
-* [Funcionalidades e Demonstração](#funcionalidades-e-demonstração-da-aplicação)
+* [Funcionalidades e Demonstração](Demonstração)
 * [Acesso ao Projeto](#acesso-ao-projeto)
-* [Tecnologias utilizadas](#tecnologias-utilizadas)
+* [Tecnologias utilizadas](#Ferramentas-utilizadas)
 * [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
 * [Licença](#licença)
 * [Conclusão](#conclusão)
@@ -41,10 +41,12 @@ O tabuleiro do jogo é controlado por um joystick e depois a gravidade atua na b
 
 <a href="https://www.w3schools.com/c/c_intro.php" target="_blank"> <img src="https://github.com/user-attachments/assets/f7f5e428-10d6-41af-8076-f3ea7734c9c5" alt="C" width="40" height="40"/> </a>
 
+## Demonstração
+
+Pode [video demonstração](https://youtu.be/noK9392qMWw )
 
 
 ###
-
 ## Acesso ao projeto
 
 Pode [acessar o código fonte do projeto](https://github.com/joaoh2244/Projeto-1_LEEC)
