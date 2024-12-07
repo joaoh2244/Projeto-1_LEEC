@@ -29,9 +29,17 @@ O tabuleiro do jogo é controlado por um joystick e depois a gravidade atua na b
 
 ## Funcionalidades
 
-`Mode de seleção de Modo de Jogo:` Bola passar pelo Checkponit inicial e em seguida premir botão 1(Modo 1) ou botão 2(Modo 2).
+`Seleção de Modo de Jogo:` Bola passar pelo Checkponit inicial e em seguida premir botão 1(Modo 1) ou botão 2(Modo 2).
 
 :heavy_check_mark: `Modo de Jogo 1:` Objetivo: Bola passar pelos todos os Checkpoints sem qualquer ordem exigida e depois alcançar o checkpoint final.
 
 :heavy_check_mark: `Modo de Jogo 2:` Objetivo: Bola passar pelos todos os Checkpoints com certa ordem exigida e depois alcançar o checkpoint final.
+
+
+## Ferramentas utilizadas
+<a href="https://www.arduino.cc/" target="_blank"> <img src="https://github.com/user-attachments/assets/4b0cc0cf-84a1-47ad-a57f-211caf7456da" alt="Arduino" width="40" height="40"/> </a> 
+
+<a href="https://developer.android.com/studio" target="_blank"> <img src="https://developer.android.com/images/logos/android.svg" alt="androidStudio" width="40" height="40"/> </a> <a 
+
+
 
