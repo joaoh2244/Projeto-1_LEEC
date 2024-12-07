@@ -4,7 +4,6 @@
 
 # Tópicos
 
-* [Título e Imagem de capa](#Título-e-Imagem-de-capa)
 * [Tópicos](#Tópicos)
 * [Descrição do Projeto](#descrição-do-projeto)
 * [Status do Projeto](#status-do-Projeto)
