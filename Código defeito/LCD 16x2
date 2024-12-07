@@ -1,0 +1,88 @@
+#include <Servo.h>
+#include <LiquidCrystal.h>
+
+#define x 15
+
+Servo Servo_X;
+Servo Servo_Y;
+
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2); // Pinos LCD
+
+// Variáveis do cronômetro
+unsigned long previousMillis = 0;
+int horas = 0;
+int minutos = 0;
+int segundos = 0;
+bool cronometroAtivo = false; // Controle do estado do cronômetro
+
+// Sensores LDR
+const int sensorInicio = A0; // LDR1
+const int sensorFim = A5;    // LDR6
+
+void setup() {
+  Serial.begin(9600);
+  lcd.begin(16, 2);
+
+  pinMode(sensorInicio, INPUT);
+  pinMode(sensorFim, INPUT);
+
+  // Exibe mensagem inicial no LCD
+  lcd.setCursor(0, 0);
+  lcd.print("Modo de Jogo...");
+  lcd.setCursor(0, 1);
+  lcd.print("Aguardando...");
+}
+
+void loop() {
+  // Leitura dos sensores
+  int valorInicio = analogRead(sensorInicio);
+  int valorFim = analogRead(sensorFim);
+
+  // Inicia o cronômetro se LDR1 > 360
+  if (modo_jogo!=0 && !cronometroAtivo) { //inicia ao modo de jogo ser diferente de 0
+    cronometroAtivo = true;
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Cronometro ON");
+    delay(1000);
+    lcd.clear();
+  }
+
+  // Pausa o cronômetro se LDR6 < 400
+  if (valorFim < 400 && cronometroAtivo) {
+    cronometroAtivo = false;
+    lcd.setCursor(0, 1);
+    lcd.print("Cronometro PAUSADO");
+    delay(1000);
+  }
+
+  // Atualiza o cronômetro se estiver ativo
+  if (cronometroAtivo) {
+    unsigned long currentMillis = millis();
+
+    // Incrementa tempo a cada segundo
+    if (currentMillis - previousMillis >= 1000) {
+      previousMillis = currentMillis;
+      segundos++;
+
+      if (segundos == 60) {
+        segundos = 0;
+        minutos++;
+      }
+      if (minutos == 60) {
+        minutos = 0;
+        horas++;
+      }
+
+      // Atualiza o LCD com o tempo decorrido
+      lcd.setCursor(0, 0);
+      lcd.print("Tempo: ");
+      lcd.print(horas);
+      lcd.print("h ");
+      lcd.print(minutos);
+      lcd.print("m ");
+      lcd.print(segundos);
+      lcd.print("s ");
+    }
+  }
+}
