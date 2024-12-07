@@ -47,7 +47,8 @@ Pode [video demonstração](https://youtu.be/noK9392qMWw )
 ## Acesso ao projeto
 
 Pode [acessar o código fonte do projeto](https://github.com/joaoh2244/Projeto-1_LEEC)
-< Pode [construir uma estrutura de jogo semelhante](https://www.youtube.com/watch?v=vPXJ-jp0rnk) />
+
+ Pode [construir uma estrutura de jogo semelhante](https://www.youtube.com/watch?v=vPXJ-jp0rnk) 
 
 
 ## Abrir e rodar o projeto
