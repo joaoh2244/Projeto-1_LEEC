@@ -1,1 +1,9 @@
+*.java linguist-detectable=true
+*.js linguist-detectable=false
+*.html linguist-detectable=false
+*.xml linguist-detectable=false
+//*.Roff linguist-vendored
+
+# Direct Swift
+*.* linguist-language=C
 
