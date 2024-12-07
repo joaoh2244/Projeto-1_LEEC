@@ -6,9 +6,9 @@
 
 * [Tópicos](#Tópicos)
 * [Descrição do Projeto](#descrição-do-projeto)
-* [Funcionalidades e Demonstração](Demonstracao)
-* [Acesso ao Projeto](#acesso-ao-projeto)
 * [Tecnologias utilizadas](#Ferramentas-utilizadas)
+* [Funcionalidades e Demonstração](Demonstracão)
+* [Acesso ao Projeto](#acesso-ao-projeto)
 * [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
 * [Ambito](#Ambito)
 
@@ -49,7 +49,6 @@ Pode [video demonstração](https://youtu.be/noK9392qMWw )
 Pode [acessar o código fonte do projeto](https://github.com/joaoh2244/Projeto-1_LEEC)
 
  Pode [construir uma estrutura de jogo semelhante](https://www.youtube.com/watch?v=vPXJ-jp0rnk) 
-
 
 ## Abrir e rodar o projeto
 
