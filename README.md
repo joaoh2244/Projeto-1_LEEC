@@ -55,6 +55,12 @@ Pode [acessar o código fonte do projeto]([https://github.com/camilafernanda/Gli
 Após download do projeto, pode abrir com o `Arduino IDE`. Para isso, na tela do launcher clique em:
 - `File->Open` (ou alguma opção similar);
 - Procure o local onde o projeto está e o selecione;
+- Por fim clique em `OK`.
 
+
+## Desenvolvedores
+
+| [<img src="https://avatars.githubusercontent.com/u/37356058?v=4" width=115><br><sub>João Marques Henriques</sub>](https://github.com/camilafernanda) |  [<img src="https://avatars.githubusercontent.com/u/38091359?v=4" width=115><br><sub>Luís Varela Pires</sub>](https://github.com/crovim)  |
+| :---: | :---: 
 
 
