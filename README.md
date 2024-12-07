@@ -7,7 +7,7 @@
 * [Tópicos](#Tópicos)
 * [Descrição do Projeto](#descrição-do-projeto)
 * [Tecnologias utilizadas](#Ferramentas-utilizadas)
-* [Funcionalidades e Demonstração](Demonstracão)
+* [Funcionalidades e Demonstração](Demonstração)
 * [Acesso ao Projeto](#acesso-ao-projeto)
 * [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
 * [Ambito](#Ambito)
