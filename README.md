@@ -60,7 +60,7 @@ Após download do projeto, pode abrir com o `Arduino IDE`. Para isso, na tela do
 
 ## Desenvolvedores
 
-| [<img src="https://github.com/user-attachments/assets/755374a4-a107-4a43-abab-b1789c72fbb5" width=115><br><sub>João Marques Henriques</sub>](https://github.com/joaoh22) |  [<img src="https://avatars.githubusercontent.com/u/38091359?v=4" width=115><br><sub>Luís Varela Pires</sub>](https://github.com/luispires2005)  |
+| [<img src="https://github.com/user-attachments/assets/755374a4-a107-4a43-abab-b1789c72fbb5" width=115><br><sub>João Marques Henriques</sub>](https://github.com/joaoh22) |  [<img src="https://github.com/user-attachments/assets/3d952957-f29b-47a1-9a56-689a87729fed" width=115><br><sub>Luís Varela Pires</sub>](https://github.com/luispires2005)  |
 | :---: | :---: 
 
 
