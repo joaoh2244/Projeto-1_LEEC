@@ -40,7 +40,7 @@ O tabuleiro do jogo é controlado por um joystick e depois a gravidade atua na b
 
 ## Demonstração
 
-Pode [video demonstração](https://youtu.be/noK9392qMWw )
+Pode [video demonstração](https://youtu.be/Ctxc2Leu0-g)
 
 
 ###
